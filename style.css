@@ -1,0 +1,95 @@
+/* As cores por nome se repetem no menu, nas tabelas e nos botões. */
+* { box-sizing: border-box; }
+body {
+  --papel: white;
+  --tinta: black;
+  --suave: ghostwhite;
+  --linha: silver;
+  --link: navy;
+  margin: 0;
+  font-family: "Source Sans 3", "Segoe UI", sans-serif;
+  line-height: 1.55;
+  color: var(--tinta);
+  background: whitesmoke;
+}
+body.escuro {
+  --papel: midnightblue;
+  --tinta: white;
+  --suave: black;
+  --linha: lightslategray;
+  --link: lightsteelblue;
+  background: black;
+  color-scheme: dark;
+}
+.largura { width: 90%; max-width: 960px; margin: 0 auto; }
+.cabecalho, footer { background-color: midnightblue; color: white; }
+.cabecalho { border-bottom: 5px solid steelblue; padding: 18px 0 22px; }
+.barra, .menu, .cards, .apresentacao, .filtros, .assuntos {
+  display: flex;
+  gap: 16px;
+}
+.barra, .filtros { align-items: center; }
+.barra { justify-content: space-between; border-bottom: 1px solid lightsteelblue; padding-bottom: 14px; }
+.marca { font-family: Georgia, serif; font-size: 1.2rem; font-weight: bold; color: white; text-decoration: none; }
+#tema { margin: 0; color: white; background: transparent; border: 1px solid lightsteelblue; }
+.curso { margin: 32px 0 0; color: white; }
+h1, h2, h3 { font-family: Georgia, serif; line-height: 1.2; }
+h1 { font-size: 3.6rem; margin: 6px 0; }
+h2 { margin: 0 0 14px; font-size: 1.85rem; }
+h3 { margin: 0 0 10px; }
+.chamada { margin: 0 0 22px; }
+.menu { gap: 10px 26px; }
+.menu a { color: white; text-underline-offset: 4px; }
+.menu a:hover, .marca:hover { color: lightsteelblue; }
+main { padding: 24px 0 4px; }
+.secao { background: var(--papel); border: 1px solid var(--linha); padding: 26px; margin-bottom: 20px; border-radius: 10px; }
+.apresentacao { align-items: flex-start; gap: 30px; }
+.apresentacao > div { flex: 2; }
+.extra { flex: 1; padding: 18px; border-left: 4px solid steelblue; background: var(--suave); }
+.extra p { margin: 0 0 10px; }
+a { color: var(--link); }
+.assuntos { flex-wrap: wrap; gap: 6px 24px; padding-left: 20px; }
+/* A tabela usa bordas compartilhadas para separar os dados. */
+table { width: 100%; border-collapse: collapse; }
+caption { text-align: left; margin-bottom: 6px; font-weight: bold; }
+th, td { text-align: left; padding: 10px 12px; border: 1px solid var(--linha); }
+th { background: midnightblue; color: white; }
+tbody tr:nth-child(even) { background: var(--suave); }
+.filtros { margin: 12px 0 18px; flex-wrap: wrap; }
+#contador { margin-left: auto; }
+.cards { align-items: stretch; }
+.card { flex: 1; min-width: 210px; overflow-wrap: anywhere; padding: 18px; border: 1px solid var(--linha); border-top: 4px solid steelblue; border-radius: 7px; }
+.tecnologias { font-size: .9rem; font-weight: bold; }
+button, .botao, summary { cursor: pointer; }
+button, .botao { display: inline-block; font: inherit; font-weight: 600; color: white; background: midnightblue; border: 1px solid midnightblue; padding: 8px 14px; border-radius: 6px; text-decoration: none; }
+button:hover, .botao:hover { background: black; color: white; }
+.secundario, .remover { color: var(--link); background: transparent; border: 1px solid var(--linha); }
+.remover { margin-top: 8px; }
+:focus-visible { outline: 3px solid dodgerblue; outline-offset: 3px; }
+.cadastro { border-top: 1px solid var(--linha); margin-top: 20px; padding-top: 14px; }
+summary { font-weight: bold; color: var(--link); }
+form { display: flex; flex-direction: column; max-width: 580px; gap: 5px; }
+label { font-weight: 600; }
+form label:not(:first-child) { margin-top: 8px; }
+input, textarea, select { font: inherit; color: var(--tinta); background: var(--papel); padding: 8px 10px; border: 1px solid var(--linha); border-radius: 5px; }
+textarea { resize: vertical; }
+form button { align-self: flex-start; margin-top: 10px; }
+[role="status"]:empty { margin: 0; }
+footer { text-align: center; padding: 18px; }
+footer p { margin: 2px; }
+/* Ajustes para a largura disponível */
+.menu, .cards { flex-wrap: wrap; }
+@media (max-width: 768px) {
+  .apresentacao, .cards { flex-direction: column; }
+  .card, .extra { min-width: 0; width: 100%; }
+  .secao { padding: 20px; }
+  h1 { font-size: 2.8rem; }
+}
+@media (max-width: 480px) {
+  .largura { width: 94%; }
+  .barra, .filtros { gap: 8px; flex-wrap: wrap; }
+  .menu { gap: 10px 18px; }
+  .secao { padding: 15px; }
+  th, td { padding: 6px; }
+  #contador { margin-left: 0; }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>João Pedro | Caderno de Front-End</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Apresentação e navegação -->
+  <header class="cabecalho" id="inicio">
+    <div class="largura">
+      <div class="barra">
+        <a class="marca" href="#inicio">Caderno de Front-End</a>
+        <button id="tema" type="button" aria-pressed="false">Tema escuro</button>
+      </div>
+      <p class="curso">UCSAL · Engenharia de Software</p>
+      <h1>João Pedro</h1>
+      <p class="chamada">Meus primeiros projetos de programação front-end.</p>
+      <nav class="menu" aria-label="Seções do portfólio">
+        <a href="#sobre">Sobre mim</a>
+        <a href="#conhecimentos">Conhecimentos</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal do portfólio -->
+  <main class="largura">
+    <section id="sobre" class="secao apresentacao">
+      <div>
+        <h2>Sobre mim</h2>
+        <p>Estou no segundo semestre de Engenharia de Software. Gosto de pegar uma ideia pequena e ver o que consigo fazer com ela no navegador. Este caderno reúne o que estou aprendendo nas aulas.</p>
+        <p id="mais-sobre" hidden>Meu objetivo é conseguir montar uma página inteira e explicar cada parte dela. Por enquanto, estou praticando formulários e tentando entender por que um layout que funciona no computador às vezes fica apertado no celular.</p>
+        <button class="secundario" id="mais" type="button" aria-controls="mais-sobre" aria-expanded="false">Mostrar mais</button>
+      </div>
+      <aside class="extra">
+        <h3>Na minha lista de estudos</h3>
+        <p>Entender como um clique em um botão chega até o elemento que está em volta dele.</p>
+        <a href="#projetos">Explorar os projetos</a>
+      </aside>
+    </section>
+
+    <section id="conhecimentos" class="secao">
+      <h2>Conhecimentos</h2>
+      <ul class="assuntos" aria-label="Assuntos estudados">
+        <li>HTML semântico</li><li>Flexbox</li><li>Media queries</li><li>Eventos</li>
+      </ul>
+      <table>
+        <caption>O que já consigo aplicar</caption>
+        <thead><tr><th scope="col">Tecnologia</th><th scope="col">Nível</th><th scope="col">Onde aplico</th></tr></thead>
+        <tbody>
+          <tr><td>HTML</td><td>Intermediário</td><td>Seções, tabelas e formulários</td></tr>
+          <tr><td>CSS</td><td>Intermediário</td><td>Cards que mudam de posição no celular</td></tr>
+          <tr><td>JavaScript</td><td>Básico</td><td>Cálculo de médias e eventos de clique</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="projetos" class="secao">
+      <h2>Projetos</h2>
+      <div class="filtros">
+        <label for="filtro">Filtrar por categoria</label>
+        <select id="filtro"><option value="todos">Todas</option><option value="web">Web</option><option value="logica">Lógica</option></select>
+        <span id="contador" role="status"></span>
+      </div>
+      <div class="cards" id="lista-projetos">
+        <article class="card" data-categoria="web">
+          <h3>Caderno de Front-End</h3>
+          <p>Começou com uma tabela de habilidades. Depois ganhou cores, um menu e cards que se ajustam à tela.</p>
+          <p class="tecnologias">HTML · CSS · JavaScript</p>
+          <a class="botao" href="#inicio">Ver portfólio</a>
+          <button type="button" class="remover">Remover</button>
+        </article>
+        <article class="card" data-categoria="logica">
+          <h3>Calculadora de médias</h3>
+          <p>Recebe três notas, calcula a média e mostra a classificação usando as condições da aula.</p>
+          <p class="tecnologias">HTML · JavaScript</p>
+          <details><summary>Ver exemplo de cálculo</summary><p>Com as notas 8, 7 e 9, a média é (8 + 7 + 9) ÷ 3 = 8. A classificação é Aprovado.</p></details>
+          <button type="button" class="remover">Remover</button>
+        </article>
+        <article class="card" data-categoria="web">
+          <h3>Laboratório de DOM</h3>
+          <p>Uma página para testar seletores e descobrir o que acontece quando um projeto entra ou sai da lista.</p>
+          <p class="tecnologias">HTML · CSS · JavaScript</p>
+          <a class="botao" href="#cadastrar-projeto">Experimentar o cadastro</a>
+          <button type="button" class="remover">Remover</button>
+        </article>
+      </div>
+      <details class="cadastro">
+        <summary id="cadastrar-projeto">Cadastrar projeto</summary>
+        <p>Os projetos adicionados e removidos voltam ao estado inicial ao recarregar a página.</p>
+        <form id="cadastro" novalidate>
+          <label for="nome-projeto">Nome do projeto</label>
+          <input id="nome-projeto" name="nome" minlength="3" required>
+          <label for="categoria">Categoria</label>
+          <select id="categoria" name="categoria"><option value="web">Web</option><option value="logica">Lógica</option></select>
+          <button type="submit">Adicionar projeto</button>
+        </form>
+      </details>
+      <p id="status" role="status"></p>
+    </section>
+
+    <section id="contato" class="secao">
+      <h2>Contato</h2>
+      <p>O formulário prepara uma mensagem para joaopedro.mendes@ucsal.edu.br. Revise e envie no seu aplicativo de e-mail.</p>
+      <form id="form-contato" action="mailto:joaopedro.mendes@ucsal.edu.br">
+        <label for="nome">Nome</label><input id="nome" name="nome" autocomplete="name" required>
+        <label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required>
+        <label for="assunto">Assunto</label><input id="assunto" name="assunto" required>
+        <label for="mensagem">Mensagem</label><textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+        <button type="submit">Abrir no e-mail</button>
+      </form>
+      <p id="retorno-contato" role="status"></p>
+    </section>
+  </main>
+  <!-- Identificação da atividade -->
+  <footer><p>João Pedro · 2026</p><p>Programação Front-End · Universidade Católica do Salvador</p></footer>
+</body>
+</html>
